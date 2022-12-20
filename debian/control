@@ -1,0 +1,62 @@
+Source: kalarmcal
+Section: libs
+Priority: optional
+Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
+Uploaders: Norbert Preining <norbert@preining.info>,
+           Sandro Knauß <hefee@debian.org>,
+Build-Depends: cmake (>= 3.16~),
+               debhelper-compat (= 13),
+               extra-cmake-modules (>= 5.83.0~),
+               gettext,
+               libkf5akonadi-dev (>= 4:21.08.1~),
+               libkf5calendarcore-dev (>= 5:5.83.0~),
+               libkf5calendarutils-dev (>= 4:21.08.1~),
+               libkf5config-dev (>= 5.83.0~),
+               libkf5holidays-dev (>= 1:5.83.0~),
+               libkf5i18n-dev (>= 5.83.0~),
+               libkf5identitymanagement-dev (>= 21.08.1~),
+               pkg-kde-tools (>> 0.15.15),
+               qtbase5-dev,
+               xauth,
+               xvfb,
+Standards-Version: 4.6.0
+Homepage: https://invent.kde.org/pim/kalarmcal
+Vcs-Browser: https://salsa.debian.org/qt-kde-team/kde/kalarmcal
+Vcs-Git: https://salsa.debian.org/qt-kde-team/kde/kalarmcal.git
+Rules-Requires-Root: no
+
+Package: libkf5alarmcalendar-data
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}
+Description: library for handling kalarm calendar data - arch independent files
+ This library provides access to and handling of kalarm calendar data.
+ .
+ This package contains the arch independent data for KAlarmCalendar.
+
+Package: libkf5alarmcalendar-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends: libkf5akonadi-dev (>= 4:21.08.1~),
+         libkf5alarmcalendar5abi1 (= ${binary:Version}),
+         libkf5calendarcore-dev (>= 5:5.83.0~),
+         libkf5holidays-dev (>= 1:5.83.0~),
+         libkf5identitymanagement-dev (>= 21.08.1~),
+         ${misc:Depends},
+Description: library for handling kalarm calendar data - development files
+ This library provides access to and handling of kalarm calendar data.
+ .
+ This package contains the development files.
+
+Package: libkf5alarmcalendar5abi1
+X-Debian-ABI: 1
+X-CMake-Target: KF5AlarmCalendar
+Architecture: any
+Multi-Arch: same
+Depends: libkf5alarmcalendar-data (>= ${source:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends},
+Description: library for handling kalarm calendar data
+ This library provides access to and handling of kalarm calendar data.
+Provides: ${ABI:VirtualPackage}

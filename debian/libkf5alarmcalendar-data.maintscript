@@ -1,0 +1,2 @@
+rm_conffile /etc/xdg/kalarmcal.categories 4:20.04.1-2~
+rm_conffile /etc/xdg/kalarmcal.renamecategories 4:20.04.1-2~
